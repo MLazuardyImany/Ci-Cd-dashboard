@@ -1,0 +1,18 @@
+{"level":"info","message":"Database connection established successfully","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"Database models synchronized","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"=================================","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"📝 Environment: development","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"🌐 API URL: http://localhost:5000","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"💚 Health Check: http://localhost:5000/health","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"level":"info","message":"=================================","service":"cicd-dashboard","timestamp":"2025-12-21 22:43:44"}
+{"ip":"::1","level":"info","message":"GET /health","service":"cicd-dashboard","timestamp":"2025-12-21 22:46:16","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0"}
+{"ip":"::1","level":"info","message":"GET /favicon.ico","service":"cicd-dashboard","timestamp":"2025-12-21 22:46:16","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0"}
+{"level":"info","message":"Database connection established successfully","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"Database models synchronized","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"=================================","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"📝 Environment: development","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"🌐 API URL: http://localhost:5000","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"💚 Health Check: http://localhost:5000/health","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
+{"level":"info","message":"=================================","service":"cicd-dashboard","timestamp":"2025-12-21 22:56:23"}
