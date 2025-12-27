@@ -71,14 +71,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes (akan ditambahkan nanti)
-app.get('/api/projects', (req, res) => {
-  res.json({ message: 'Projects endpoint - Coming soon' });
-});
+// API Routes
+const projectRoutes = require('./routes/projectRoutes');
+const buildRoutes = require('./routes/buildRoutes');
 
-app.get('/api/builds', (req, res) => {
-  res.json({ message: 'Builds endpoint - Coming soon' });
-});
+app.use('/api/projects', projectRoutes);
+app.use('/api/builds', buildRoutes);
 
 // 404 handler
 app.use((req, res) => {
