@@ -4,12 +4,22 @@
 
 @layer base {
   * {
-    @apply border-gray-200;
+    @apply border-gray-200 dark:border-gray-700;
   }
   
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Force text colors in dark mode */
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    @apply text-white;
+  }
+  
+  .dark p {
+    @apply text-gray-300;
   }
   
   code, pre {
@@ -20,11 +30,11 @@
 @layer components {
   /* Cards - Real shadows, not flat */
   .card {
-    @apply bg-white border border-gray-200 rounded-lg transition-all duration-200;
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg transition-all duration-200;
   }
   
   .card:hover {
-    @apply shadow-card-hover border-gray-300;
+    @apply shadow-card-hover border-gray-300 dark:border-gray-600;
   }
   
   /* Buttons - Subtle, not gradient-heavy */
@@ -33,12 +43,12 @@
   }
   
   .btn-primary {
-    @apply bg-black text-white hover:bg-gray-800 active:bg-gray-900;
+    @apply bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-100 active:bg-gray-900 dark:active:bg-gray-200;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
   
   .btn-secondary {
-    @apply bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400;
+    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-400 dark:hover:border-gray-500;
   }
   
   .btn-success {
@@ -61,33 +71,33 @@
   }
   
   .badge-success {
-    @apply bg-green-50 text-green-700 border border-green-200;
+    @apply bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800;
   }
   
   .badge-error {
-    @apply bg-red-50 text-red-700 border border-red-200;
+    @apply bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800;
   }
   
   .badge-warning {
-    @apply bg-yellow-50 text-yellow-700 border border-yellow-200;
+    @apply bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800;
   }
   
   .badge-info {
-    @apply bg-blue-50 text-blue-700 border border-blue-200;
+    @apply bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800;
   }
   
   .badge-gray {
-    @apply bg-gray-100 text-gray-700 border border-gray-200;
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700;
   }
   
   /* Input fields - Clean & minimal */
   .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all;
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent transition-all;
   }
   
   /* Code blocks - Like GitHub */
   .code-block {
-    @apply bg-gray-50 border border-gray-200 rounded-md p-4 font-mono text-sm overflow-x-auto;
+    @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md p-4 font-mono text-sm overflow-x-auto;
   }
   
   /* Logs terminal - Real terminal look */
@@ -120,22 +130,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  @apply bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 4px;
+  @apply bg-gray-300 dark:bg-gray-600 rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  @apply bg-gray-400 dark:bg-gray-500;
 }
 
 /* Selection color */
 ::selection {
-  background-color: #000;
-  color: #fff;
+  @apply bg-black dark:bg-white text-white dark:text-black;
 }
 
 /* Animations - Subtle */

@@ -74,29 +74,29 @@ const Dashboard = () => {
     <div className="space-y-8 animate-fadeIn">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600 mt-1">Monitor your CI/CD pipeline at a glance</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">Monitor your CI/CD pipeline at a glance</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {statCards.map((stat, index) => {
-          const Icon = stat.icon;
-          return (
-            <div key={index} className="card p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600">{stat.label}</p>
-                  <p className="text-3xl font-bold text-gray-900 mt-2">{stat.value}</p>
-                </div>
-                <div className={`${stat.bg} p-3 rounded-lg`}>
-                  <Icon className={`w-6 h-6 ${stat.color}`} />
-                </div>
-              </div>
-            </div>
-          );
-        })}
+  {statCards.map((stat, index) => {
+    const Icon = stat.icon;
+    return (
+      <div key={index} className="card p-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</p>
+            <p className="text-3xl font-bold text-gray-900 dark:text-white mt-2">{stat.value}</p>
+          </div>
+          <div className={`${stat.bg} p-3 rounded-lg`}>
+            <Icon className={`w-6 h-6 ${stat.color}`} />
+          </div>
+        </div>
       </div>
+    );
+  })}
+</div>
 
       {/* Recent Builds */}
       <div className="card p-6">
@@ -110,21 +110,21 @@ const Dashboard = () => {
 
         <div className="space-y-3">
           {stats.recentBuilds.map((build) => (
-            <div key={build.id} className="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+            <div key={build.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all">
               <div className="flex items-center gap-4">
                 {build.status === 'success' && <CheckCircle className="w-5 h-5 text-green-600" />}
                 {build.status === 'failed' && <XCircle className="w-5 h-5 text-red-600" />}
                 {build.status === 'running' && <Clock className="w-5 h-5 text-blue-600 animate-spin" />}
                 
                 <div>
-                  <p className="font-medium text-gray-900">{build.project?.name}</p>
-                  <p className="text-sm text-gray-600">Build #{build.buildNumber}</p>
+                  <p className="font-medium text-gray-900 dark:text-white">{build.project?.name}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Build #{build.buildNumber}</p>
                 </div>
               </div>
               
               <Link 
                 to={`/builds/${build.id}`}
-                className="text-sm text-gray-600 hover:text-gray-900"
+                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               >
                 View logs →
               </Link>
