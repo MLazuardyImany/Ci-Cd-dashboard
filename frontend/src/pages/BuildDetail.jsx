@@ -21,10 +21,8 @@ const BuildDetail = () => {
   useEffect(() => {
     fetchBuildDetails();
     
-    // Connect socket
     const socket = socketService.connect();
     
-    // Subscribe to build updates
     socketService.subscribeToBuild(id, (data) => {
       console.log('Build update:', data);
       if (data.logs) {
@@ -105,7 +103,6 @@ const BuildDetail = () => {
         Back to Builds
       </button>
 
-      {/* Build Header */}
       <div className="card p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
@@ -131,7 +128,6 @@ const BuildDetail = () => {
           )}
         </div>
 
-        {/* Build Info Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div>
             <p className="text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-1">
@@ -168,7 +164,6 @@ const BuildDetail = () => {
           )}
         </div>
 
-        {/* Commit Message */}
         {build.commitMessage && (
           <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Commit Message</p>
@@ -177,7 +172,6 @@ const BuildDetail = () => {
         )}
       </div>
 
-      {/* Build Logs */}
       <div className="card">
         <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -189,7 +183,6 @@ const BuildDetail = () => {
                 onChange={(e) => setAutoScroll(e.target.checked)}
                 className="rounded"
               />
-              Auto-scroll
             </label>
           </div>
 
@@ -206,7 +199,7 @@ const BuildDetail = () => {
               className="btn btn-secondary text-sm"
             >
               <Download className="w-4 h-4" />
-              Download
+              
             </button>
           </div>
         </div>

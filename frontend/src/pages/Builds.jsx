@@ -43,14 +43,12 @@ const Builds = () => {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Builds</h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">{builds.length} total builds</p>
         </div>
 
-        {/* Filter */}
         <div className="flex items-center gap-2">
           <Filter className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           <select
@@ -67,7 +65,6 @@ const Builds = () => {
         </div>
       </div>
 
-      {/* Builds List */}
       {builds.length === 0 ? (
         <div className="card">
           <EmptyState
@@ -81,9 +78,7 @@ const Builds = () => {
           {builds.map((build) => (
             <div key={build.id} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
               <div className="flex items-start justify-between">
-                {/* Left Side */}
                 <div className="flex-1">
-                  {/* Project Name & Build Number */}
                   <div className="flex items-center gap-3 mb-2">
                     <Link
                       to={`/projects/${build.project?.id}`}
@@ -96,7 +91,6 @@ const Builds = () => {
                     <StatusBadge status={build.status} />
                   </div>
 
-                  {/* Commit Info */}
                   <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
                     <span className="flex items-center gap-1">
                       <GitCommit className="w-4 h-4" />
@@ -114,12 +108,10 @@ const Builds = () => {
                     </span>
                   </div>
 
-                  {/* Commit Message */}
                   <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
                     {build.commitMessage || 'No commit message'}
                   </p>
 
-                  {/* Duration */}
                   {build.duration && (
                     <div className="text-xs text-gray-500 dark:text-gray-500">
                       Duration: {formatDuration(build.duration)}
@@ -127,7 +119,6 @@ const Builds = () => {
                   )}
                 </div>
 
-                {/* Right Side - Actions */}
                 <Link
                   to={`/builds/${build.id}`}
                   className="btn btn-secondary text-sm"

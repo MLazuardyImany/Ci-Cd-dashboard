@@ -25,7 +25,6 @@ const Projects = () => {
   }, []);
 
   useEffect(() => {
-    // Filter projects based on search query
     if (searchQuery.trim() === '') {
       setFilteredProjects(projects);
     } else {
@@ -149,7 +148,6 @@ const Projects = () => {
           </button>
         </div>
 
-        {/* Search Bar */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
@@ -161,7 +159,6 @@ const Projects = () => {
           />
         </div>
 
-        {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
           <div className="card">
             <EmptyState
@@ -174,7 +171,6 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
               <div key={project.id} className="card p-6 group">
-                {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors">
@@ -197,12 +193,10 @@ const Projects = () => {
                   </button>
                 </div>
 
-                {/* Description */}
                 <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                   {project.description || 'No description'}
                 </p>
 
-                {/* Stats */}
                 <div className="flex items-center gap-4 mb-4 text-sm">
                   <div className="flex items-center gap-1 text-gray-600">
                     <Activity className="w-4 h-4" />
@@ -218,7 +212,6 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Last Build */}
                 {project.lastBuildAt && (
                   <div className="flex items-center justify-between text-xs text-gray-500 mb-4 pb-4 border-b">
                     <span className="flex items-center gap-1">
@@ -231,14 +224,12 @@ const Projects = () => {
                   </div>
                 )}
 
-                {/* Actions */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleTriggerBuild(project.id, project.name)}
                     className="flex-1 btn btn-primary text-sm"
                   >
                     <Play className="w-4 h-4" />
-                    Trigger Build
                   </button>
                   <Link
                     to={`/projects/${project.id}`}
@@ -253,7 +244,6 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Modals */}
       <CreateProjectModal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}

@@ -11,25 +11,20 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  // Initialize theme from localStorage or default to 'light'
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
     return saved || 'light';
   });
 
-  // Apply theme changes to document
   useEffect(() => {
     const root = document.documentElement;
     
-    // Remove both classes
     root.classList.remove('light', 'dark');
     
-    // Add current theme
     if (theme === 'dark') {
       root.classList.add('dark');
     }
     
-    // Save to localStorage
     localStorage.setItem('theme', theme);
     
     console.log('✅ Theme applied:', theme);
@@ -47,7 +42,7 @@ export const ThemeProvider = ({ children }) => {
   const value = {
     theme,
     toggleTheme,
-    setTheme, // Add this for manual control
+    setTheme,
   };
 
   return (

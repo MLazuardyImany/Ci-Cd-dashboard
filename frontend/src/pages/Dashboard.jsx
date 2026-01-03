@@ -72,13 +72,11 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8 animate-fadeIn">
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">Manage Your Projects</p>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
   {statCards.map((stat, index) => {
     const Icon = stat.icon;
@@ -98,7 +96,6 @@ const Dashboard = () => {
   })}
 </div>
 
-      {/* Recent Builds */}
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-gray-900">Recent Builds</h2>
