@@ -86,7 +86,7 @@ const BuildDetail = () => {
   if (!build) {
     return (
       <div className="card p-12 text-center">
-        <p className="text-gray-600 mb-4">Build not found</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">Build not found</p>
         <button onClick={() => navigate('/builds')} className="btn btn-secondary">
           Back to Builds
         </button>
@@ -99,7 +99,7 @@ const BuildDetail = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate('/builds')}
-        className="text-gray-600 hover:text-gray-900 flex items-center gap-2 text-sm"
+        className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center gap-2 text-sm"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Builds
@@ -110,21 +110,21 @@ const BuildDetail = () => {
         <div className="flex items-start justify-between mb-4">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Build #{build.buildNumber}
               </h1>
               <StatusBadge status={build.status} />
             </div>
             <Link
               to={`/projects/${build.project?.id}`}
-              className="text-gray-600 hover:text-gray-900"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             >
               {build.project?.name}
             </Link>
           </div>
 
           {build.status === 'running' && (
-            <div className="flex items-center gap-2 text-sm text-blue-600">
+            <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400">
               <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
               Building...
             </div>
@@ -134,55 +134,55 @@ const BuildDetail = () => {
         {/* Build Info Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div>
-            <p className="text-gray-600 mb-1 flex items-center gap-1">
+            <p className="text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-1">
               <GitCommit className="w-4 h-4" />
               Commit
             </p>
-            <code className="font-mono text-gray-900">{build.commit?.substring(0, 7)}</code>
+            <code className="font-mono text-gray-900 dark:text-white">{build.commit?.substring(0, 7)}</code>
           </div>
           
           <div>
-            <p className="text-gray-600 mb-1 flex items-center gap-1">
+            <p className="text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-1">
               <User className="w-4 h-4" />
               Author
             </p>
-            <p className="text-gray-900">{build.author}</p>
+            <p className="text-gray-900 dark:text-white">{build.author}</p>
           </div>
           
           <div>
-            <p className="text-gray-600 mb-1 flex items-center gap-1">
+            <p className="text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               Started
             </p>
-            <p className="text-gray-900">{formatDate(build.startedAt)}</p>
+            <p className="text-gray-900 dark:text-white">{formatDate(build.startedAt)}</p>
           </div>
           
           {build.duration && (
             <div>
-              <p className="text-gray-600 mb-1 flex items-center gap-1">
+              <p className="text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-1">
                 <Clock className="w-4 h-4" />
                 Duration
               </p>
-              <p className="text-gray-900">{formatDuration(build.duration)}</p>
+              <p className="text-gray-900 dark:text-white">{formatDuration(build.duration)}</p>
             </div>
           )}
         </div>
 
         {/* Commit Message */}
         {build.commitMessage && (
-          <div className="mt-4 pt-4 border-t">
-            <p className="text-sm text-gray-600 mb-1">Commit Message</p>
-            <p className="text-gray-900">{build.commitMessage}</p>
+          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Commit Message</p>
+            <p className="text-gray-900 dark:text-white">{build.commitMessage}</p>
           </div>
         )}
       </div>
 
       {/* Build Logs */}
       <div className="card">
-        <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+        <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h2 className="font-semibold text-gray-900">Build Logs</h2>
-            <label className="flex items-center gap-2 text-sm text-gray-600">
+            <h2 className="font-semibold text-gray-900 dark:text-white">Build Logs</h2>
+            <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
               <input
                 type="checkbox"
                 checked={autoScroll}
